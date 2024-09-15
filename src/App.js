@@ -71,64 +71,64 @@ function App() {
 
   
   return (
-    <Router>
-       <Header />
-      {isAuthenticated && <UserOptions user={user} />}
+//     <Router>
+//        <Header />
+//       {isAuthenticated && <UserOptions user={user} />}
 
    
 
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:keyword" element={<Products />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/login" element={<LoginSignUp />} />
-        <Route path="/password/forgot" element={<ForgotPassword />} />
-        <Route path="/password/reset/:token" element={<ResetPassword />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contacts" element={<Contact />} />
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/product/:id" element={<ProductDetails />} />
+//         <Route path="/products" element={<Products />} />
+//         <Route path="/products/:keyword" element={<Products />} />
+//         <Route path="/search" element={<Search />} />
+//         <Route path="/login" element={<LoginSignUp />} />
+//         <Route path="/password/forgot" element={<ForgotPassword />} />
+//         <Route path="/password/reset/:token" element={<ResetPassword />} />
+//         <Route path="/cart" element={<Cart />} />
+//         <Route path="/about" element={<About />} />
+//         <Route path="/contacts" element={<Contact />} />
 
 
 
           
 
-        {/* {isAuthenticated ? (
-          <Route path="/account" element={<Profile />} />
-        ) : (
-          <Route
-            path="/account"
-            element={<Navigate to="/login" replace={true} />}
-          />
-        )} */}
+//         {/* {isAuthenticated ? (
+//           <Route path="/account" element={<Profile />} />
+//         ) : (
+//           <Route
+//             path="/account"
+//             element={<Navigate to="/login" replace={true} />}
+//           />
+//         )} */}
 
-        <Route path="/account" element={
-          <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<Profile/>} />
+//         <Route path="/account" element={
+//           <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<Profile/>} />
         
-        } />
+//         } />
 
-        <Route path="/me/update"  element={
-          <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<UpdateProfile/>} />
+//         <Route path="/me/update"  element={
+//           <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<UpdateProfile/>} />
         
-        } />
+//         } />
 
-<Route path="/password/update"  element={
-          <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<UpdatePassword/>} />
+// <Route path="/password/update"  element={
+//           <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<UpdatePassword/>} />
         
-        } />
+//         } />
 
-<Route  path="/shipping"   element={
-          <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<Shipping/>} />
+// <Route  path="/shipping"   element={
+//           <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<Shipping/>} />
         
-        } />
+//         } />
 
 
-<Route  path="/order/confirm"  element={
-          <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<ConfirmOrder/>} />
+// <Route  path="/order/confirm"  element={
+//           <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<ConfirmOrder/>} />
         
-        } />
+//         } />
 
 
 
@@ -140,89 +140,89 @@ function App() {
 
 
 
-           {stripeApiKey && (
+//            {stripeApiKey && (
         
           
-          isAuthenticated ? (
-          <Route path="/process/payment"   element={<TempContainer />} />
-        ) : (
-          <Route
-            path="/process/payment" 
-            element={<Navigate to="/login" replace={true} />}
-          />
-        )
+//           isAuthenticated ? (
+//           <Route path="/process/payment"   element={<TempContainer />} />
+//         ) : (
+//           <Route
+//             path="/process/payment" 
+//             element={<Navigate to="/login" replace={true} />}
+//           />
+//         )
 
           
        
-      )}
+//       )}
 
 
-<Route   path="/success"  element={
-          <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<OrderSuccess/>} />
+// <Route   path="/success"  element={
+//           <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<OrderSuccess/>} />
         
-        } />
+//         } />
 
 
-<Route  path="/orders" element={
-          <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<MyOrders/>} />
+// <Route  path="/orders" element={
+//           <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<MyOrders/>} />
         
-        } />
+//         } />
 
 
-<Route path="/order/:id" element={
-          <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<OrderDetails/>} />
+// <Route path="/order/:id" element={
+//           <ProtectedRoute isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<OrderDetails/>} />
         
-        } />
+//         } />
 
-<Route path="/admin/dashboard" element={
-          <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<Dashboard/>} />
+// <Route path="/admin/dashboard" element={
+//           <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<Dashboard/>} />
         
-        } />
+//         } />
 
 
-<Route  path="/admin/products" element={
-          <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<ProductList/>} />
+// <Route  path="/admin/products" element={
+//           <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<ProductList/>} />
         
-        } />
+//         } />
 
 
-<Route  path="/admin/product" element={
-          <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<NewProduct/>} />
+// <Route  path="/admin/product" element={
+//           <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<NewProduct/>} />
         
-        } />
+//         } />
 
-<Route path="/admin/product/:id" element={
-          <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<UpdateProduct/>} />
+// <Route path="/admin/product/:id" element={
+//           <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<UpdateProduct/>} />
         
-        } />
+//         } />
 
-<Route path="/admin/orders" element={
-          <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<OrderList/>} />
+// <Route path="/admin/orders" element={
+//           <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<OrderList/>} />
         
-        } />
+//         } />
 
 
-<Route path="/admin/order/:id" element={
-          <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<ProcessOrder/>} />
+// <Route path="/admin/order/:id" element={
+//           <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<ProcessOrder/>} />
         
-        } />
+//         } />
 
-<Route path="/admin/users" element={
-          <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<UsersList/>} />
+// <Route path="/admin/users" element={
+//           <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<UsersList/>} />
         
-        } />
+//         } />
 
-<Route path="/admin/user/:id"  element={
-          <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<UpdateUser/>} />
+// <Route path="/admin/user/:id"  element={
+//           <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<UpdateUser/>} />
         
-        } />
+//         } />
 
         
 
-<Route  path="/admin/reviews"  element={
-          <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<ProductReviews/>} />
+// <Route  path="/admin/reviews"  element={
+//           <ProtectedRoute   isAdmin={true} isAuthenticated={isAuthenticated} loading={loading} user={user}   renderElement={<ProductReviews/>} />
         
-        } />
+//         } />
 
   
 
@@ -230,9 +230,12 @@ function App() {
 
 
         
-      </Routes>
-      <Footer/>
-    </Router>
+//       </Routes>
+//       <Footer/>
+//     </Router>
+<>
+    <h1>sdasdsdsad</h1>
+</>
   );
 }
 
