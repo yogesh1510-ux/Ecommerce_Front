@@ -7,13 +7,13 @@ export const getProducts = (keyword="",currentPage=1,price=[0,25000],category,ra
         dispatch({type:GET_ALL_PRODUCT_REQUEST})
 
         //let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`;
-        let link = `https://ecommerce-website-nuyo.onrender.com/api/v1/products`;
+        let link = `http://localhost:4000/api/v1/products`;
 
         if(category && category !=="All" ){
 
           
            // link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`;
-            link = `https://ecommerce-website-nuyo.onrender.com/api/v1/products`;
+            link = `http://localhost:4000/api/v1/products`;
         }
 
         const {data} = await axios.get(link);
