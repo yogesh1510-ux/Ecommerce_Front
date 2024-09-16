@@ -71,7 +71,7 @@ export const loadUser = () => async(dispatch) =>{
        
 
 
-        const {data} =await axios.get(`https://ecommerce-website-nuyo.onrender.com/api/v1/me`);
+        const {data} =await axios.get(`http://localhost:4000/api/v1/me`);
 
         dispatch({
             type:LOAD_USER_SUCCESS,
