@@ -73,7 +73,7 @@ function App() {
   return (
     <Router>
        <Header />
-      {/* {isAuthenticated && <UserOptions user={user} />} */}
+      {isAuthenticated && <UserOptions user={user} />}
 
    
 
