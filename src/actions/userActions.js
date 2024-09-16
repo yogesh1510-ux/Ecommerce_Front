@@ -12,7 +12,7 @@ export const login = (email,password) => async(dispatch) =>{
 
 
         const {data} =await axios.post(
-            `http://localhost:4000/api/api/v1/login`,
+            `http://localhost:4000/api/v1/login`,
             {email,password},
             config
         )
@@ -41,7 +41,7 @@ export const register = (userData) => async(dispatch) => {
         const config= { headers : { "Content-Type":"multipart/form-data" }}
 
         const { data } = await axios.post(
-            `http://localhost:4000/api/api/v1/register`,
+            `http://localhost:4000/api/v1/register`,
             userData,
             config
         )
