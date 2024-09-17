@@ -50,7 +50,7 @@ function App() {
 
   async function getStripeApiKey() {
     try {
-      const { data } = await axios.get("http://localhost:4000/api/v1/stripeapikey");
+      const { data } = await axios.get("https://ecommerce-website-nuyo.onrender.com/api/v1/stripeapikey");
       setStripeApiKey(data.stripeApiKey);
     } catch (error) {
       console.error("Error fetching Stripe API key:", error);
