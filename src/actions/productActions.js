@@ -14,7 +14,13 @@ export const getProducts = (keyword="",currentPage=1,price=[0,25000],category,ra
             link = `https://ecommerce-website-nuyo.onrender.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`;
         }
 
-        const {data} = await axios.get(link);
+        const config = {
+          withCredentials: true, 
+        };
+
+
+
+        const {data} = await axios.get(link,config);
 
         // products:action.payload.products,
         // productCount:action.payload.productCount,
@@ -67,6 +73,7 @@ export const newReview = (reviewData) => async (dispatch) => {
   
       const config = {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true, 
       };
   
       const { data } = await axios.put(`https://ecommerce-website-nuyo.onrender.com/api/v1/review`, reviewData, config);
@@ -87,8 +94,11 @@ export const newReview = (reviewData) => async (dispatch) => {
   export const getAdminProduct = () => async (dispatch) => {
     try {
       dispatch({ type: ADMIN_PRODUCT_REQUEST });
+      const config = {
+        withCredentials: true, 
+      };
   
-      const { data } = await axios.get("https://ecommerce-website-nuyo.onrender.com/api/v1/admin/products");
+      const { data } = await axios.get("https://ecommerce-website-nuyo.onrender.com/api/v1/admin/products",config);
   
       dispatch({
         type: ADMIN_PRODUCT_SUCCESS,
@@ -105,8 +115,11 @@ export const newReview = (reviewData) => async (dispatch) => {
   export const deleteProduct = (id) => async (dispatch) => {
     try {
       dispatch({ type: DELETE_PRODUCT_REQUEST });
+      const config = {
+        withCredentials: true, 
+      };
   
-      const { data } = await axios.delete(`https://ecommerce-website-nuyo.onrender.com/api/v1/admin/product/${id}`);
+      const { data } = await axios.delete(`https://ecommerce-website-nuyo.onrender.com/api/v1/admin/product/${id}`,config);
   
       dispatch({
         type: DELETE_PRODUCT_SUCCESS,
@@ -126,6 +139,7 @@ export const newReview = (reviewData) => async (dispatch) => {
   
       const config = {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true, 
       };
   
       const { data } = await axios.post(
@@ -149,8 +163,11 @@ export const newReview = (reviewData) => async (dispatch) => {
   export const getProductDetails = (id) => async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_DETAILS_REQUEST });
+      const config = {
+        withCredentials: true, 
+      };
   
-      const { data } = await axios.get(`https://ecommerce-website-nuyo.onrender.com/api/v1/product/${id}`);
+      const { data } = await axios.get(`https://ecommerce-website-nuyo.onrender.com/api/v1/product/${id}`,config);
   
       dispatch({
         type: PRODUCT_DETAILS_SUCCESS,
@@ -171,6 +188,7 @@ export const newReview = (reviewData) => async (dispatch) => {
   
       const config = {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true, 
       };
   
       const { data } = await axios.put(
@@ -195,8 +213,11 @@ export const newReview = (reviewData) => async (dispatch) => {
   export const getAllReviews = (id) => async (dispatch) => {
     try {
       dispatch({ type: ALL_REVIEW_REQUEST });
-  
-      const { data } = await axios.get(`https://ecommerce-website-nuyo.onrender.com/api/v1/reviews?id=${id}`);
+
+      const config = {
+        withCredentials: true, 
+      };
+      const { data } = await axios.get(`https://ecommerce-website-nuyo.onrender.com/api/v1/reviews?id=${id}`,config);
   
       dispatch({
         type: ALL_REVIEW_SUCCESS,
@@ -214,9 +235,12 @@ export const newReview = (reviewData) => async (dispatch) => {
   export const deleteReviews = (reviewId, productId) => async (dispatch) => {
     try {
       dispatch({ type: DELETE_REVIEW_REQUEST });
+      const config = {
+        withCredentials: true, 
+      };
   
       const { data } = await axios.delete(
-        `https://ecommerce-website-nuyo.onrender.com/api/v1/reviews?id=${reviewId}&productId=${productId}`
+        `https://ecommerce-website-nuyo.onrender.com/api/v1/reviews?id=${reviewId}&productId=${productId}`,config
       );
   
       dispatch({
