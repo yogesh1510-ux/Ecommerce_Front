@@ -61,7 +61,7 @@ const Payment = () => {
         withCredentials: true, 
       };
       const { data } = await axios.post(
-        "/api/v1/payment/process",
+        "https://ecommerce-website-nuyo.onrender.com/api/v1/payment/process",
         paymentData,
         config
       );
