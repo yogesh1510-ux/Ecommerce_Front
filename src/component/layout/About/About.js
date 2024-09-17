@@ -5,9 +5,7 @@ import "./aboutSection.css";
 import img from "../../../images/about.jpg"
 
 const About = () => {
-  const visitInstagram = () => {
-    window.location = "https://instagram.com/meabhisingh";
-  };
+
 
   return (
     <div className="about-us-container">

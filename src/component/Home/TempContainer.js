@@ -12,7 +12,11 @@ const TempContainer = () => {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
   async function getStripeApiKey() {
-    const { data } = await axios.get("/api/v1/stripeapikey");
+    const config = {
+      withCredentials: true, 
+    };
+    
+    const { data } = await axios.get("https://ecommerce-website-nuyo.onrender.com/api/v1/stripeapikey",config);
 
     setStripeApiKey(data.stripeApiKey);
   }
