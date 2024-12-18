@@ -24,7 +24,7 @@ const About = () => {
           <div>
 
           <p>
-          Welcome to Ecommerce, where your online shopping experience comes to
+          Welcome to MarketNow, where your online shopping experience comes to
           life. We are dedicated to providing you with a diverse selection of
           high-quality products, ensuring that your every purchase exceeds
           expectations.
