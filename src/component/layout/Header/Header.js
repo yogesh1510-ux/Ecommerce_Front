@@ -32,7 +32,7 @@ const Header = () => {
      
    
 
-      <label className='logo'>Ecommerce</label>
+      <label className='logo'>MarketNow</label>
 
       <div>
 
