@@ -31,19 +31,40 @@ const UpdateProfile = () => {
     const [email,setEmail] = useState("");
    
 
-    const updateProfileDataChange = (e) => {
-      const reader = new FileReader();
+  //   const updateProfileDataChange = (e) => {
+  //     const reader = new FileReader();
 
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          setAvatarPreview(reader.result);
-          setAvatar(reader.result);
-        }
-      };
+  //     reader.onload = () => {
+  //       if (reader.readyState === 2) {
+  //         setAvatarPreview(reader.result);
+  //         setAvatar(reader.result);
+  //       }
+  //     };
   
-      reader.readAsDataURL(e.target.files[0]);
+  //     reader.readAsDataURL(e.target.files[0]);
       
+  // }
+
+  const updateProfileDataChange = (e) => {
+  const file = e.target.files[0];
+
+  if (file && !["image/jpeg", "image/jpg"].includes(file.type)) {
+    alert.error("Only JPG or JPEG images are allowed");
+    return;
   }
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    if (reader.readyState === 2) {
+      setAvatarPreview(reader.result);
+      setAvatar(reader.result);
+    }
+  };
+
+  reader.readAsDataURL(file);
+};
+
 
   const updateProfileSubmit = (e) =>{
      e.preventDefault();
