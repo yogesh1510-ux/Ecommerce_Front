@@ -56,24 +56,33 @@ const LoginSignUp = () => {
         }
     };
 
-    const registerSubmit = async (e) => {
-        e.preventDefault();
-        const myForm = new FormData();
+    const toBase64 = (file) => new Promise((resolve, reject) => {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => resolve(reader.result);
+  reader.onerror = error => reject(error);
+});
 
-        myForm.set("name", name);
-        myForm.set("email", email);
-        myForm.set("password", password);
+const registerSubmit = async (e) => {
+  e.preventDefault();
+  const myForm = new FormData();
 
-        if (!avatar) {
-            const response = await fetch("/Profile.jpg");
-            const blob = await response.blob();
-            myForm.set("avatar", blob, "default.jpg");
-        } else {
-            myForm.set("avatar", avatar);
-        }
+  myForm.set("name", name);
+  myForm.set("email", email);
+  myForm.set("password", password);
 
-        dispatch(register(myForm));
-    };
+  if (!avatar) {
+    const response = await fetch("/Profile.jpg");
+    const blob = await response.blob();
+    const base64 = await toBase64(blob);
+    myForm.set("avatar", base64);
+  } else {
+    myForm.set("avatar", avatar);
+  }
+
+  dispatch(register(myForm));
+};
+
 
     useEffect(() => {
         if (error && error !== "please login to acess required resources") {
@@ -183,7 +192,7 @@ const LoginSignUp = () => {
                                     <input
                                         type='file'
                                         name='avatar'
-                                        accept='image/jpeg,image/jpg'
+                                        
                                         onChange={registerDataChange}
                                     />
                                 </div>
